@@ -10,14 +10,12 @@ class SecondePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("SecondePage"),
+        title: Text("SPage"),
       ),
       body: Center(
-        child: RaisedButton(
-          child: Text('Return Home Page'),
-          onPressed: () {
-            Navigator.pop(context, 'Return some Data....');
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text('intVal:$intVal'), Text('strVal:$strVal')],
         ),
       ),
     );

@@ -20,17 +20,32 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var result;
+
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: RaisedButton(
-        child: Text('點我到第二頁'),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => SecondePage(intVal:100, strVal:'Owen Fu')));
-        },
-      ),
+    return Column(
+      children: [
+        RaisedButton(
+          onPressed: () {
+            goToBPage(context);
+          },
+          child: Text('Go To SecondePage'),
+        ),
+        Text('ReturnValue:$result')
+      ],
     );
+  }
+
+  void goToBPage(BuildContext context) async {
+    result = await Navigator.push(
+        context, MaterialPageRoute(builder: (context) => SecondePage()));
+    print('result:$result');
   }
 }
