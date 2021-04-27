@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(title: Text('First APP')),
-          body: ButtonPage(),
+          body: ImagePage(),
         ));
   }
 }
@@ -105,5 +105,17 @@ class ButtonPage extends StatelessWidget {
 
   void btnClickEvent() {
     print('Click');
+  }
+}
+
+class ImagePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Image.asset(
+        'assets/images/logo.png',
+        width: 100,
+      ),
+    );
   }
 }
