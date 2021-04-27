@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'second_page.dart';
+import 'DataClass/product.dart';
 
 void main() {
   debugPaintSizeEnabled = false;
@@ -14,38 +15,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          appBar: AppBar(title: Text('Change Page')),
+          appBar: AppBar(title: Text('Product')),
           body: HomePage(),
         ));
   }
 }
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  var result;
+class HomePage extends StatelessWidget {
+  final Product product = Product(name: 'PS5', desc: '描述內容', price: 20000, stock: 20);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        RaisedButton(
-          onPressed: () {
-            goToBPage(context);
-          },
-          child: Text('Go To SecondePage'),
-        ),
-        Text('ReturnValue:$result')
-      ],
+    return Center(
+      child: RaisedButton(
+        child: Text('Go to SecondPage'),
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SecondePage(product: product,)));
+        },
+      ),
     );
-  }
-
-  void goToBPage(BuildContext context) async {
-    result = await Navigator.push(
-        context, MaterialPageRoute(builder: (context) => SecondePage()));
-    print('result:$result');
   }
 }

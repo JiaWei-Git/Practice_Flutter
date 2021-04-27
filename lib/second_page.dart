@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
+import 'DataClass/product.dart';
 
 class SecondePage extends StatelessWidget {
-  final int intVal;
-  final String strVal;
+  final Product product;
 
-  SecondePage({Key key, this.intVal, this.strVal}) : super(key: key);
+  SecondePage({Key key, this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("SecondePage"),
-      ),
-      body: Center(
-        child: RaisedButton(
-          child: Text('Return Home Page'),
-          onPressed: () {
-            Navigator.pop(context, 'Return some Data....');
-          },
+        appBar: AppBar(
+          title: Text("SecondePage"),
         ),
-      ),
-    );
+        body: Column(
+          children: [
+            Text('name:${product.name}'),
+            Text('desc:${product.desc}'),
+            Text('price:${product.price}'),
+            Text('stock:${product.stock}'),
+          ],
+        ));
   }
 }
