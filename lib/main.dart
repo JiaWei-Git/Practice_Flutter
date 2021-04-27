@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-      appBar: AppBar(title: Text('First APP')),
-      body: HomePage(),
-    ));
+          appBar: AppBar(title: Text('First APP')),
+          body: RowPage(),
+        ));
   }
 }
 
@@ -30,6 +30,33 @@ class HomePage extends StatelessWidget {
         margin: EdgeInsets.all(50),
         padding: EdgeInsets.only(left: 100, top: 50),
       ),
+    );
+  }
+}
+
+class RowPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          child: Text(
+            "1",
+            style: TextStyle(fontSize: 200),
+          ),
+          color: Colors.amber,
+        ),
+        Container(
+          child: Text("2", style: TextStyle(fontSize: 100)),
+          color: Colors.red,
+        ),
+        Container(
+          child: Text("3", style: TextStyle(fontSize: 100)),
+          color: Colors.green,
+        )
+      ],
     );
   }
 }
