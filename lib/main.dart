@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(title: Text('First APP')),
-          body: TextPage(),
+          body: ButtonPage(),
         ));
   }
 }
@@ -84,5 +84,26 @@ class TextPage extends StatelessWidget {
         maxLines: 2,
       ),
     );
+  }
+}
+
+class ButtonPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: RaisedButton(
+        child: Text(
+          "按鈕",
+          style: TextStyle(color: Colors.amber),
+        ),
+        onPressed: btnClickEvent,
+        color: Colors.green,
+        elevation: 20,
+      ),
+    );
+  }
+
+  void btnClickEvent() {
+    print('Click');
   }
 }
