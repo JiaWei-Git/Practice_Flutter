@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(title: Text('First APP')),
-          body: CenterPage(),
+          body: TextPage(),
         ));
   }
 }
@@ -64,7 +64,25 @@ class RowPage extends StatelessWidget {
 class CenterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: FlutterLogo(size: 100),);
+    return Center(
+      child: FlutterLogo(size: 100),
+    );
   }
 }
 
+class TextPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        "Owen\nLine2\nLine3\n",
+        style: TextStyle(
+            fontSize: 50,
+            color: Colors.red,
+            decoration: TextDecoration.underline,
+            fontWeight: FontWeight.bold),
+        maxLines: 2,
+      ),
+    );
+  }
+}
