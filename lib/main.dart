@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(title: Text('First APP')),
-          body: RowPage(),
+          body: CenterPage(),
         ));
   }
 }
@@ -60,3 +60,11 @@ class RowPage extends StatelessWidget {
     );
   }
 }
+
+class CenterPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: FlutterLogo(size: 100),);
+  }
+}
+
