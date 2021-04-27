@@ -27,7 +27,8 @@ class HomePage extends StatelessWidget {
       child: RaisedButton(
         child: Text('點我到第二頁'),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>SecondePage()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SecondePage(intVal:100, strVal:'Owen Fu')));
         },
       ),
     );

@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
 
 class SecondePage extends StatelessWidget {
+  final int intVal;
+  final String strVal;
+
+  SecondePage({Key key, this.intVal, this.strVal}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("SPage"),
       ),
-      body: _SecodePage(),
-    );
-  }
-}
-
-class _SecodePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: RaisedButton(
-        child: Text('返回首頁'),
-        onPressed: () {
-          Navigator.pop(context);
-        },
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text('intVal:$intVal'), Text('strVal:$strVal')],
+        ),
       ),
     );
   }
