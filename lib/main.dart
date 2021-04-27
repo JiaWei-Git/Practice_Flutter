@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(title: Text('First APP')),
-          body: ImagePage(),
+          body: TextFieldPage(),
         ));
   }
 }
@@ -117,5 +117,44 @@ class ImagePage extends StatelessWidget {
         width: 100,
       ),
     );
+  }
+}
+
+class TextFieldPage extends StatelessWidget {
+  final TextEditingController myController = new TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Center(
+          child: TextField(
+            enabled: true,
+            decoration: InputDecoration(hintText: '請輸入帳號'),
+            maxLength: 5,
+          ),
+        ),
+        Center(
+          child: TextField(
+            obscureText: true,
+            enabled: true,
+            decoration: InputDecoration(hintText: '請輸入密碼'),
+            maxLength: 5,
+          ),
+        ),
+        TextField(
+          controller: myController,
+          decoration: InputDecoration(hintText: '請輸入文字...'),
+        ),
+        RaisedButton(
+          onPressed: btnEvent,
+          child: Text('印出輸入框內容'),
+        )
+      ],
+    );
+  }
+
+  void btnEvent() {
+    print(myController.text);
   }
 }
